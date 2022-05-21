@@ -1,6 +1,7 @@
 let transactions = [];
 let myChart;
 
+// Get all db transactions and display
 fetch("/api/transaction")
   .then(response => {
     return response.json();
@@ -78,6 +79,7 @@ function populateChart() {
   });
 }
 
+
 function sendTransaction(isAdding) {
   let nameEl = document.querySelector("#t-name");
   let amountEl = document.querySelector("#t-amount");
@@ -112,7 +114,7 @@ function sendTransaction(isAdding) {
   populateTable();
   populateTotal();
   
-  // also send to server
+  // aAlso send to server
   fetch("/api/transaction", {
     method: "POST",
     body: JSON.stringify(transaction),
